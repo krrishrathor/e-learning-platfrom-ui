@@ -70,3 +70,4 @@ This project is highly applicable in a variety of real-world use cases such as:
 
 *OUTPUT*:
 
+<img width="1470" alt="Image" src="https://github.com/user-attachments/assets/42aaaf25-b5ba-4a78-a504-5870f80eb817" />
