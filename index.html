@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Simple E-Learning</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="main-header">
+        <nav class="container header-nav">
+            <h1 class="site-title">
+                <span class="site-logo">E</span>Learn
+            </h1>
+            <div class="nav-buttons">
+                <button id="homeBtn" class="nav-button">Home</button>
+                <button class="nav-button">All Courses</button>
+                <button class="nav-button">Pricing</button>
+                <button class="nav-button">Contact Us</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container main-content">
+
+        <!-- Course Listing Page -->
+        <section id="courseListingPage" class="page">
+            <h2 class="section-title">Our Courses</h2>
+            <div id="courseCardsContainer" class="course-cards-grid">
+                <!-- Course cards will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Course Detail Page -->
+        <section id="courseDetailPage" class="page hidden">
+            <button id="backToCoursesBtn" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd"
+                        d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                Back to Courses
+            </button>
+
+            <div class="course-detail-card">
+                <h2 id="courseDetailTitle" class="course-detail-title"></h2>
+                <p id="courseDetailDescription" class="course-detail-description"></p>
+
+                <div class="video-player-container">
+                    <iframe id="courseVideoPlayer" class="video-iframe" src="" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="progress-section">
+                    <h3 class="progress-title">Your Progress</h3>
+                    <div class="progress-bar-background">
+                        <div id="progressBar" class="progress-bar-fill" style="width: 0%;"></div>
+                    </div>
+                    <p id="progressText" class="progress-text">0% Completed</p>
+                </div>
+
+                <div class="modules-section">
+                    <h3 class="modules-title">Course Modules</h3>
+                    <ul id="moduleList" class="module-list-scroll">
+                        <!-- Modules will be dynamically inserted here -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Course Card Template -->
+    <template id="courseCardTemplate">
+        <div class="course-card" data-course-id="">
+            <img src="" alt="Course Image" class="course-card-image">
+            <div class="course-card-content">
+                <h3 class="course-card-title"></h3>
+                <p class="course-card-description"></p>
+                <div class="course-card-progress-background">
+                    <div class="course-card-progress-fill" style="width: 0%;"></div>
+                </div>
+                <p class="course-card-progress-text">0% Completed</p>
+                <button class="view-course-button">View Course</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- Module Item Template -->
+    <template id="moduleItemTemplate">
+        <li class="module-item">
+            <span class="module-title"></span>
+            <input type="checkbox" class="module-checkbox">
+        </li>
+    </template>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>

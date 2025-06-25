@@ -1,0 +1,400 @@
+/* Basic Page Setup */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #F8F8F8; /* Lighter background */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1300px; /* Slightly smaller max-width */
+    margin: 0 auto;
+    padding: 15px; /* Simpler padding */
+    box-sizing: border-box;
+}
+
+/* Header Styling */
+.main-header {
+    background-color: #6A5ACD; /* Simple purple color */
+    color: white;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Simpler shadow */
+}
+
+.header-nav {
+    display: flex;
+    flex-direction: column; /* Stack on small screens by default */
+    align-items: center;
+    justify-content: center; /* Center items for small screens */
+    gap: 15px; /* Gap between logo and buttons */
+}
+
+@media (min-width: 640px) { /* Small screens and up */
+    .header-nav {
+        flex-direction: row; /* Row for larger screens */
+        justify-content: space-between; /* Space out logo and buttons */
+        align-items: center;
+    }
+}
+
+.site-title {
+    font-size: 30px; /* Direct font size */
+    font-weight: bold;
+    margin: 0; /* Remove default margins */
+}
+
+.site-logo {
+    background-color: white;
+    color: #6A5ACD;
+    padding: 5px 10px;
+    border-radius: 5px; /* Simpler border-radius */
+    margin-right: 5px; /* Space between 'E' and 'Learn' */
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap */
+    justify-content: center; /* Center buttons if wrapped */
+    gap: 10px; /* Gap between buttons */
+}
+
+.nav-button {
+    background-color: white;
+    color: #6A5ACD;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none; /* No border */
+    cursor: pointer;
+    font-weight: normal; /* Normal font weight */
+    transition: background-color 0.2s ease; /* Simpler transition */
+    white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.nav-button:hover {
+    background-color: #E0E0E0; /* Simple hover color */
+}
+
+/* Main Content */
+.main-content {
+    flex-grow: 1;
+    margin-top: 25px;
+    padding: 15px;
+}
+
+/* Page Visibility */
+.page {
+    display: block;
+}
+
+.page.hidden {
+    display: none;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 35px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Course Cards Grid */
+.course-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column default */
+    gap: 20px; /* Simpler gap */
+}
+
+@media (min-width: 700px) { /* Medium screens */
+    .course-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) { /* Larger screens - adjusted breakpoint for 3 columns */
+    .course-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/* Course Card Styling */
+.course-card {
+    background-color: white;
+    border-radius: 12px; /* Simpler border-radius */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* Simpler shadow */
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Only transform on hover */
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    transform: translateY(-5px); /* Simpler hover effect */
+}
+
+.course-card-image {
+    width: 100%;
+    height: 180px; /* Fixed height */
+    object-fit: cover;
+}
+
+.course-card-content {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card-title {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+    white-space: nowrap; /* Prevent wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-card-description {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 15px;
+    max-height: 60px; /* Fixed height for description */
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+.course-card-progress-background {
+    width: 100%;
+    background-color: #DDD; /* Lighter background for progress */
+    border-radius: 10px;
+    height: 10px;
+    margin-bottom: 5px;
+}
+
+.course-card-progress-fill {
+    background-color: #4CAF50; /* Basic green */
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.course-card-progress-text {
+    text-align: right;
+    color: #777;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.view-course-button {
+    margin-top: 15px;
+    width: 100%;
+    background-color: #6A5ACD;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: normal;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.view-course-button:hover {
+    background-color: #5B4CA7; /* Darker purple on hover */
+}
+
+/* Course Detail Page Styling */
+.back-button {
+    background-color: #EFEFEF; /* Light gray */
+    color: #333;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s ease;
+    margin-bottom: 20px;
+    font-weight: normal;
+    display: inline-flex; /* Use inline-flex for button and icon */
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #DEDEDE;
+}
+
+.back-button .icon {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.course-detail-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    padding: 20px;
+}
+
+.course-detail-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.course-detail-description {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.video-player-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: #CCC; /* Simple gray placeholder */
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Progress Section (Detail Page) */
+.progress-section {
+    margin-bottom: 20px;
+}
+
+.progress-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.progress-bar-background {
+    width: 100%;
+    background-color: #DDD;
+    border-radius: 10px;
+    height: 15px;
+    margin-bottom: 5px;
+}
+
+.progress-bar-fill {
+    background-color: #28A745; /* A bit darker green for fill */
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.progress-text {
+    text-align: right;
+    color: #555;
+    font-size: 14px;
+}
+
+/* Modules Section */
+.modules-section {
+    margin-bottom: 20px;
+}
+
+.modules-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.module-list-scroll {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid #CCC; /* Simple border */
+    border-radius: 8px;
+    max-height: 250px; /* Slightly smaller scroll height */
+    overflow-y: auto;
+}
+
+/* Hide scrollbar */
+.module-list-scroll::-webkit-scrollbar {
+    display: none;
+}
+.module-list-scroll {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.module-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F8F8F8; /* Light background for items */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s ease;
+}
+
+.module-item.completed {
+    background-color: #D4EDDA; /* Light green for completed */
+}
+
+.module-title {
+    font-size: 16px;
+    font-weight: normal;
+    color: #444;
+}
+
+.module-item.completed .module-title {
+    text-decoration: none; /* Removed line-through */
+    color: #666;
+}
+
+.module-checkbox {
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+    /* Simple appearance for checkbox */
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    .header-nav {
+        flex-direction: column;
+    }
+    .nav-buttons {
+        margin-top: 10px;
+    }
+    .site-title {
+        font-size: 25px;
+    }
+    .section-title, .course-detail-title {
+        font-size: 28px;
+    }
+    .course-detail-description {
+        font-size: 14px;
+    }
+    .progress-title, .modules-title {
+        font-size: 18px;
+    }
+    .course-card-title {
+        font-size: 20px;
+    }
+}
