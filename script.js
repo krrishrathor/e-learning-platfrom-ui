@@ -5,7 +5,7 @@ const mockCourses = [
         title: 'Introduction to Web Development',
         description: 'Learn the basics of HTML, CSS, and JavaScript to build web pages.',
         image: 'https://placehold.co/400x200/ADD8E6/000000?text=Web+Dev',
-        videoUrl: 'https://www.youtube.com/embed/videoseries?list=PL4cUxeGkcC9jo_Gv-A0W40e5ga7S1b_E-', // Example YouTube playlist
+        videoUrl: 'https://www.youtube.com/embed/videoseries?list=PL4cUxeGkcC9jo_Gv-A0W40e5ga7S1b_E-', // Example YouTube playlist (not working)
         modules: [
             { id: 'mod-1-1', title: 'HTML Basics', completed: false },
             { id: 'mod-1-2', title: 'CSS Styling', completed: false },
@@ -38,7 +38,7 @@ const mockCourses = [
     },
 ];
 
-// Store current user progress in localStorage (for persistence)
+// Store current user progress in localStorage
 let userProgress = JSON.parse(localStorage.getItem('userProgress')) || {};
 
 // Function to update local storage with current progress
@@ -63,7 +63,6 @@ function calculateProgress(courseId) {
     return (completedCount / course.modules.length) * 100;
 }
 
-// --- DOM Elements ---
 const courseListingPage = document.getElementById('courseListingPage');
 const courseDetailPage = document.getElementById('courseDetailPage');
 const courseCardsContainer = document.getElementById('courseCardsContainer');
@@ -81,7 +80,7 @@ const backToCoursesBtn = document.getElementById('backToCoursesBtn');
 
 let currentCourseId = null; // To keep track of the currently viewed course
 
-// --- Page Navigation Functions ---
+// Page Navigation Functions
 function showPage(pageId) {
     // Hide all pages
     const allPages = document.querySelectorAll('.page');
@@ -92,7 +91,7 @@ function showPage(pageId) {
     document.getElementById(pageId).classList.remove('hidden');
 }
 
-// --- Render Course Listing ---
+// Render Course Listing
 function renderCourseListing() {
     courseCardsContainer.innerHTML = ''; // Clear previous cards
     for (let i = 0; i < mockCourses.length; i++) {
@@ -117,13 +116,13 @@ function renderCourseListing() {
         progText.textContent = `${Math.round(progress)}% Completed`;
 
         // Event listener to view course details
-        viewBtn.onclick = function(event) { // Use simpler onclick
+        viewBtn.onclick = function(event) {
             event.stopPropagation(); // Prevent card click if button is clicked
             displayCourseDetail(course.id);
             showPage('courseDetailPage');
         };
 
-        // Also make the whole card clickable
+        // Make the whole card clickable
         card.onclick = function() {
             displayCourseDetail(course.id);
             showPage('courseDetailPage');
@@ -133,7 +132,7 @@ function renderCourseListing() {
     }
 }
 
-// --- Display Course Details ---
+// Display Course Details
 function displayCourseDetail(courseId) {
     currentCourseId = courseId;
     const course = mockCourses.find(c => c.id === courseId);
@@ -197,7 +196,7 @@ function updateCourseProgressUI(courseId) {
     progressText.textContent = `${Math.round(progress)}% Completed`;
 }
 
-// --- Event Listeners for Navigation ---
+// Event Listeners for Navigation
 homeBtn.onclick = function() { // Use simpler onclick
     showPage('courseListingPage');
     // Reset video player when navigating away from detail page
