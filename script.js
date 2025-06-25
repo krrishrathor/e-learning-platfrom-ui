@@ -26,9 +26,9 @@ const mockCourses = [
     },
     {
         id: 'course-3',
-        title: 'Graphic Design Principles',
-        description: 'Master core graphic design, typography, and color theory.',
-        image: 'https://placehold.co/400x200/FFDAB9/000000?text=Graphic+Design',
+        title: 'Machine Learning Fundamentals',
+        description: 'Get your hands on machine learning.',
+        image: 'https://placehold.co/400x200/FFDAB9/000000?text=Machine+Learning',
         videoUrl: 'https://www.youtube.com/embed/videoseries?list=PLD5_e2M0l3f2j5b4e8y3C8h2f9l2h8n1q',
         modules: [
             { id: 'mod-3-1', title: 'Elements of Design', completed: false },
